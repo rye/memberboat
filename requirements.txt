@@ -1,0 +1,6 @@
+# `attrs` is used to build more rich class structures and to add internal schema
+# validation to those structures.
+attrs == 19.3.0
+
+# `requests` is used for interaction with GitHub's API
+requests == 2.23.0
