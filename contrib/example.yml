@@ -1,0 +1,23 @@
+---
+users:
+- username: rye
+  type: student
+  year: 2020
+  email: kristofer.rye@gmail.com
+  role: admin
+
+- username: hawkrives
+  type: alumnus
+  year: 2016
+  email: hawkrives@example.com
+  role: admin
+
+- username: drewvolz
+  type: alumnus
+  year: 2016
+  email: drewvolz@example.com
+  role: admin
+
+- username: foobar
+  type: external
+  role: member
