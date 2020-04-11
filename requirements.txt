@@ -1,6 +1,12 @@
+# `argparse` is used to process command-line arguments
+argparse == 1.4.0
+
 # `attrs` is used to build more rich class structures and to add internal schema
 # validation to those structures.
 attrs == 19.3.0
 
-# `requests` is used for interaction with GitHub's API
-requests == 2.23.0
+# `requests` is used for interaction with GitHub's API and other stuff
+requests == 2.14.0
+
+# `PyGithub` is used for interacting with GitHub's API
+PyGithub == 1.47
