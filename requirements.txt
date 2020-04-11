@@ -10,3 +10,6 @@ requests == 2.14.0
 
 # `PyGithub` is used for interacting with GitHub's API
 PyGithub == 1.47
+
+# `black` is used for formatting the source files
+black == 19.10b0
