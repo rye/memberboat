@@ -10,3 +10,6 @@ requests == 2.14.0
 
 # `PyGithub` is used for interacting with GitHub's API
 PyGithub == 1.47
+
+# `cryptography` is used for interacting with Github's API with a private key
+cryptography == 2.9
