@@ -13,3 +13,6 @@ PyGithub == 1.47
 
 # `cryptography` is used for interacting with Github's API with a private key
 cryptography == 2.9
+
+# `yapf` is used for formatting the source files 
+yapf == 0.29.0 
