@@ -14,35 +14,35 @@ from github import Github, GithubIntegration
 
 
 def get_installation_token(owner, repo):
-    integration_id = os.environ['GITHUB_APP_ID']
-    private_key_file = os.environ['GITHUB_APP_PRIVATE_KEY_FILE']
+	integration_id = os.environ['GITHUB_APP_ID']
+	private_key_file = os.environ['GITHUB_APP_PRIVATE_KEY_FILE']
 
-    with open(private_key_file, "r") as file:
-        private_key = file.read().strip().encode()
+	with open(private_key_file, "r") as file:
+		private_key = file.read().strip().encode()
 
-        integration = GithubIntegration(integration_id=int(integration_id),
-                                        private_key=private_key)
+		integration = GithubIntegration(integration_id=int(integration_id),
+		                                private_key=private_key)
 
-        installation = integration.get_installation(owner, repo)
+		installation = integration.get_installation(owner, repo)
 
-        return integration.get_access_token(installation.id.value).token
+		return integration.get_access_token(installation.id.value).token
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        prog='memberboat', description='Synchronize membership with GitHub')
+	parser = argparse.ArgumentParser(
+	    prog='memberboat', description='Synchronize membership with GitHub')
 
-    subparsers = parser.add_subparsers(help='sub-command help')
+	subparsers = parser.add_subparsers(help='sub-command help')
 
-    args = parser.parse_args()
+	args = parser.parse_args()
 
-    token = get_installation_token(os.environ['GITHUB_ORG_NAME'],
-                                   os.environ['GITHUB_REPO_NAME'])
+	token = get_installation_token(os.environ['GITHUB_ORG_NAME'],
+	                               os.environ['GITHUB_REPO_NAME'])
 
-    g = Github(token)
+	g = Github(token)
 
-    print(g.rate_limiting)
+	print(g.rate_limiting)
 
 
 if __name__ == "__main__":
-    main()
+	main()
