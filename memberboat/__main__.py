@@ -38,7 +38,8 @@ def main():
 	                    help='the file containing membership information')
 
 	subparsers = parser.add_subparsers(title='subcommands',
-	                                   description='valid subcommands')
+	                                   description='valid subcommands',
+	                                   dest='subcommand')
 
 	validate_parser = subparsers.add_parser(
 	    'validate', help='validate the configuration files')
