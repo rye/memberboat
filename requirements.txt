@@ -6,7 +6,7 @@ argparse == 1.4.0
 attrs == 19.3.0
 
 # `requests` is used for interaction with GitHub's API and other stuff
-requests == 2.14.0
+requests == 2.20.0
 
 # `PyGithub` is used for interacting with GitHub's API
 PyGithub == 1.47
