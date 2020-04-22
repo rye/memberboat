@@ -28,6 +28,13 @@ def get_installation_token(owner, repo):
 		return integration.get_access_token(installation.id.value).token
 
 
+def apply(files=[], dry_run=False):
+	if dry_run:
+		print("(dry run)")
+
+def validate(files=[]):
+	print("validating")
+
 def main():
 	parser = argparse.ArgumentParser(
 	    prog='memberboat', description='Synchronize membership with GitHub')
@@ -56,12 +63,9 @@ def main():
 	args = parser.parse_args()
 
 	if args.subcommand == 'apply':
-		if not args.dry_run:
-			print("Applying configuration files")
-		else:
-			print("(Dryly) Applying configuration files")
+		apply(files=args.file, dry_run=args.dry_run)
 	else:
-		print("Validating configuration files")
+		validate(files=args.file)
 
 	token = get_installation_token(os.environ['GITHUB_ORG_NAME'],
 	                               os.environ['GITHUB_REPO_NAME'])
