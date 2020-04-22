@@ -20,7 +20,7 @@ setuptools.setup(
     },
     python_requires=">=3.6",
     install_requires=[
-        "argparse==1.4.0", "attrs==19.3.0", "requests==2.14.0",
+        "argparse==1.4.0", "attrs==19.3.0", "requests==2.20.0",
         "PyGithub==1.47"
     ],
 )
