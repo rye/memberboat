@@ -41,7 +41,7 @@ def main():
 	                                     help='apply the configuration')
 	apply_parser.add_argument('-d',
 	                          '--dry-run',
-	                          type=bool,
+	                          action='store_true',
 	                          help='only print what would be done')
 
 	args = parser.parse_args()
