@@ -13,19 +13,15 @@ from github import Github, GithubIntegration
 #   - --dry-run -- only check and print what would happen
 
 
-def get_installation_token(owner, repo):
-	integration_id = os.environ['GITHUB_APP_ID']
-	private_key_file = os.environ['GITHUB_APP_PRIVATE_KEY_FILE']
+def get_installation_token(owner, repo, integration_id, private_key):
+	private_key = private_key
 
-	with open(private_key_file, "r") as file:
-		private_key = file.read().strip().encode()
+	integration = GithubIntegration(integration_id=int(integration_id),
+	                                private_key=private_key)
 
-		integration = GithubIntegration(integration_id=int(integration_id),
-		                                private_key=private_key)
+	installation = integration.get_installation(owner, repo)
 
-		installation = integration.get_installation(owner, repo)
-
-		return integration.get_access_token(installation.id.value).token
+	return integration.get_access_token(installation.id.value).token
 
 
 def apply(files=[], dry_run=False):
@@ -69,8 +65,10 @@ def main():
 	else:
 		validate(files=args.file)
 
-	token = get_installation_token(os.environ['GITHUB_ORG_NAME'],
-	                               os.environ['GITHUB_REPO_NAME'])
+	token = get_installation_token(
+	    os.environ['GITHUB_ORG_NAME'], os.environ['GITHUB_REPO_NAME'],
+	    os.environ['GITHUB_APP_ID'],
+	    open(os.environ['GITHUB_APP_PRIVATE_KEY_FILE'], 'rb').read().strip())
 
 	g = Github(token)
 
