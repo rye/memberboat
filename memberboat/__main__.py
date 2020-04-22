@@ -32,6 +32,11 @@ def main():
 	parser = argparse.ArgumentParser(
 	    prog='memberboat', description='Synchronize membership with GitHub')
 
+	parser.add_argument('-f',
+	                    '--file',
+	                    type=argparse.FileType('r'),
+	                    help='the file containing membership information')
+
 	subparsers = parser.add_subparsers(title='subcommands',
 	                                   description='valid subcommands')
 
