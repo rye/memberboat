@@ -55,6 +55,14 @@ def main():
 
 	args = parser.parse_args()
 
+	if args.subcommand == 'apply':
+		if not args.dry_run:
+			print("Applying configuration files")
+		else:
+			print("(Dryly) Applying configuration files")
+	else:
+		print("Validating configuration files")
+
 	token = get_installation_token(os.environ['GITHUB_ORG_NAME'],
 	                               os.environ['GITHUB_REPO_NAME'])
 
