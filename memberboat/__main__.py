@@ -32,8 +32,10 @@ def apply(files=[], dry_run=False):
 	if dry_run:
 		print("(dry run)")
 
+
 def validate(files=[]):
 	print("validating")
+
 
 def main():
 	parser = argparse.ArgumentParser(
