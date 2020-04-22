@@ -32,7 +32,15 @@ def main():
 	parser = argparse.ArgumentParser(
 	    prog='memberboat', description='Synchronize membership with GitHub')
 
-	subparsers = parser.add_subparsers(help='sub-command help')
+	subparsers = parser.add_subparsers()
+	validate_parser = subparsers.add_parser(
+	    'validate', help='validate the configuration files')
+	apply_parser = subparsers.add_parser('apply',
+	                                     help='apply the configuration')
+	apply_parser.add_argument('-d',
+	                          '--dry-run',
+	                          type=bool,
+	                          help='only print what would be done')
 
 	args = parser.parse_args()
 
