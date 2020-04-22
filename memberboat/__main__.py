@@ -35,6 +35,7 @@ def main():
 	parser.add_argument('-f',
 	                    '--file',
 	                    type=argparse.FileType('r'),
+	                    required=True,
 	                    help='the file containing membership information')
 
 	subparsers = parser.add_subparsers(title='subcommands',
