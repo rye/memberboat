@@ -36,6 +36,7 @@ def main():
 	                    '--file',
 	                    type=argparse.FileType('r'),
 	                    required=True,
+	                    action='append',
 	                    help='the file containing membership information')
 
 	subparsers = parser.add_subparsers(title='subcommands',
