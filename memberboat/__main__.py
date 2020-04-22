@@ -14,8 +14,6 @@ from github import Github, GithubIntegration
 
 
 def get_installation_token(owner, repo, integration_id, private_key):
-	private_key = private_key
-
 	integration = GithubIntegration(integration_id=int(integration_id),
 	                                private_key=private_key)
 
