@@ -32,7 +32,8 @@ def main():
 	parser = argparse.ArgumentParser(
 	    prog='memberboat', description='Synchronize membership with GitHub')
 
-	subparsers = parser.add_subparsers()
+	subparsers = parser.add_subparsers(title='subcommands',
+	                                   description='valid subcommands')
 
 	validate_parser = subparsers.add_parser(
 	    'validate', help='validate the configuration files')
