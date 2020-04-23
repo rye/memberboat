@@ -1,6 +1,6 @@
 from .dotenv import load
-"""
-Author: Hawken Rives
-Source: https://github.com/degreepath/auditor
-License: GNU Affero General Public License v3.0
-"""
+
+__author__ = "Hawken Rives"
+__copyright__ = "Copyright (C) 2019  Hawken MacKay Rives"
+__license__ = "AGPL"
+__version__ = "3.0"
