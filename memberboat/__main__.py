@@ -1,7 +1,11 @@
 import os
 import argparse
+import pathlib
 
 from github import Github, GithubIntegration
+
+from memberboat.dotenv import load as load_dotenv
+load_dotenv()
 
 # import http.client
 
