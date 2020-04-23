@@ -1,6 +1,4 @@
 from .dotenv import load
-
-
 """
 Author: Hawken Rives
 Source: https://github.com/degreepath/auditor
