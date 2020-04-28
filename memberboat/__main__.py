@@ -27,6 +27,7 @@ class User():
 	year = attr.ib(default=None)
 	email = attr.ib(default=None)
 
+
 def get_installation_token(owner, repo, integration_id, private_key):
 	integration = GithubIntegration(integration_id=int(integration_id),
 	                                private_key=private_key)
@@ -48,7 +49,11 @@ def validate(files=[]):
 		for u in objects["users"]:
 			year = u["year"] if hasattr(u, 'year') else None
 			email = u["email"] if hasattr(u, 'email') else None
-			user = User(username=u["username"], type=u["type"], role=u["role"], year=year, email=email)
+			user = User(username=u["username"],
+			            type=u["type"],
+			            role=u["role"],
+			            year=year,
+			            email=email)
 			print(user)
 
 
