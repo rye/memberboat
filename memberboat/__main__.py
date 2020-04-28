@@ -6,7 +6,6 @@ import attr
 from github import Github, GithubIntegration
 
 from memberboat.readfile import read as read_file
-from memberboat.readfile import make_dict
 from memberboat.dotenv import load as load_dotenv
 load_dotenv()
 
@@ -21,7 +20,7 @@ load_dotenv()
 
 
 @attr.s
-class User:
+class User():
 	username = attr.ib()
 	type = attr.ib()
 	year = attr.ib()
@@ -46,8 +45,14 @@ def apply(files=[], dry_run=False):
 def validate(files=[]):
 	print("validating")
 	contents = read_file(files)
-	users_dict = make_dict(contents)
-	print(users_dict)
+	print(contents)
+	# users_dict = make_dict(contents)
+	# print(users_dict)
+
+	# for f in users_dict:
+
+	# 	user = User(u.username, type=u.type, year=u.year, email=u.email, role=u.role)
+	# 	print(user)
 
 
 def main():
