@@ -47,8 +47,8 @@ def validate(files=[]):
 	contents = read_yaml(files)
 	for objects in contents:
 		for u in objects["users"]:
-			year = u["year"] if hasattr(u, 'year') else None
-			email = u["email"] if hasattr(u, 'email') else None
+			year = u["year"] if 'year' in u.keys() else None
+			email = u["email"] if 'email' in u.keys() else None
 			user = User(username=u["username"],
 			            type=u["type"],
 			            role=u["role"],
