@@ -5,7 +5,7 @@ import attr
 
 from github import Github, GithubIntegration
 
-from memberboat.readfile import read as read_file
+from memberboat.yaml import read as read_yaml
 from memberboat.dotenv import load as load_dotenv
 load_dotenv()
 
@@ -23,10 +23,9 @@ load_dotenv()
 class User():
 	username = attr.ib()
 	type = attr.ib()
-	year = attr.ib()
-	email = attr.ib()
 	role = attr.ib()
-
+	year = attr.ib(default=None)
+	email = attr.ib(default=None)
 
 def get_installation_token(owner, repo, integration_id, private_key):
 	integration = GithubIntegration(integration_id=int(integration_id),
@@ -44,15 +43,13 @@ def apply(files=[], dry_run=False):
 
 def validate(files=[]):
 	print("validating")
-	contents = read_file(files)
-	print(contents)
-	# users_dict = make_dict(contents)
-	# print(users_dict)
-
-	# for f in users_dict:
-
-	# 	user = User(u.username, type=u.type, year=u.year, email=u.email, role=u.role)
-	# 	print(user)
+	contents = read_yaml(files)
+	for objects in contents:
+		for u in objects["users"]:
+			year = u["year"] if hasattr(u, 'year') else None
+			email = u["email"] if hasattr(u, 'email') else None
+			user = User(username=u["username"], type=u["type"], role=u["role"], year=year, email=email)
+			print(user)
 
 
 def main():
