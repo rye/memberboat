@@ -12,7 +12,7 @@ requests == 2.20.0
 PyGithub == 1.47
 
 # `cryptography` is used for interacting with Github's API with a private key
-cryptography == 3.2
+cryptography == 3.3.2
 
 # `yapf` is used for formatting the source files 
 yapf == 0.29.0 
