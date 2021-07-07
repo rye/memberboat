@@ -16,3 +16,6 @@ cryptography == 3.3.2
 
 # `yapf` is used for formatting the source files 
 yapf == 0.29.0 
+
+# `pyyaml` is used for validating the contents of yaml files
+pyaml == 20.4.0

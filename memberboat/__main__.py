@@ -1,9 +1,11 @@
 import os
 import argparse
 import pathlib
+import attr
 
 from github import Github, GithubIntegration
 
+from memberboat.yaml import read as read_yaml
 from memberboat.dotenv import load as load_dotenv
 load_dotenv()
 
@@ -15,6 +17,15 @@ load_dotenv()
 #   memberboat validate -- find and validate configuration files
 #   memberboat apply -- apply the configuration
 #   - --dry-run -- only check and print what would happen
+
+
+@attr.s
+class User():
+	username = attr.ib()
+	type = attr.ib()
+	role = attr.ib()
+	year = attr.ib(default=None)
+	email = attr.ib(default=None)
 
 
 def get_installation_token(owner, repo, integration_id, private_key):
@@ -33,6 +44,17 @@ def apply(files=[], dry_run=False):
 
 def validate(files=[]):
 	print("validating")
+	contents = read_yaml(files)
+	for objects in contents:
+		for u in objects["users"]:
+			year = u["year"] if 'year' in u.keys() else None
+			email = u["email"] if 'email' in u.keys() else None
+			user = User(username=u["username"],
+			            type=u["type"],
+			            role=u["role"],
+			            year=year,
+			            email=email)
+			print(user)
 
 
 def main():
